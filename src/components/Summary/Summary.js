@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Summary = ({ selected }) => {
-  console.log(selected);
   const USCurrencyFormat = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD'
