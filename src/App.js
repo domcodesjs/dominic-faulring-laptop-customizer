@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import slugify from 'slugify';
 import './App.css';
 import Header from './components/Header/Header';
+import Summary from './components/Summary/Summary';
 
 const USCurrencyFormat = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -70,26 +71,6 @@ class App extends Component {
       );
     });
 
-    const summary = Object.keys(this.state.selected).map((feature, idx) => {
-      const featureHash = feature + '-' + idx;
-      const selectedOption = this.state.selected[feature];
-
-      return (
-        <div className='summary__option' key={featureHash}>
-          <div className='summary__option__label'>{feature} </div>
-          <div className='summary__option__value'>{selectedOption.name}</div>
-          <div className='summary__option__cost'>
-            {USCurrencyFormat.format(selectedOption.cost)}
-          </div>
-        </div>
-      );
-    });
-
-    const total = Object.keys(this.state.selected).reduce(
-      (acc, curr) => acc + this.state.selected[curr].cost,
-      0
-    );
-
     return (
       <div className='App'>
         <Header></Header>
@@ -98,16 +79,7 @@ class App extends Component {
             <h2>Customize your laptop</h2>
             {features}
           </form>
-          <section className='main__summary'>
-            <h2>Your cart</h2>
-            {summary}
-            <div className='summary__total'>
-              <div className='summary__total__label'>Total</div>
-              <div className='summary__total__value'>
-                {USCurrencyFormat.format(total)}
-              </div>
-            </div>
-          </section>
+          <Summary selected={this.state.selected}></Summary>
         </main>
       </div>
     );
