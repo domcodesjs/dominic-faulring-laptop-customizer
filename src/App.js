@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import slugify from 'slugify';
 import './App.css';
+import Header from './components/Header/Header';
 
 const USCurrencyFormat = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -91,9 +92,7 @@ class App extends Component {
 
     return (
       <div className='App'>
-        <header>
-          <h1>ELF Computing | Laptops</h1>
-        </header>
+        <Header></Header>
         <main>
           <form className='main__form'>
             <h2>Customize your laptop</h2>
