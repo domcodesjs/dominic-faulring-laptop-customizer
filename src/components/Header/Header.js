@@ -1,9 +1,10 @@
 import React from 'react';
+import Nav from '../Nav/Nav';
 
 const Header = () => {
   return (
     <header>
-      <h1>ELF Computing | Laptops</h1>
+      <Nav></Nav>
     </header>
   );
 };
