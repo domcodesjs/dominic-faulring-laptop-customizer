@@ -4,7 +4,7 @@ import Header from './components/Header/Header';
 import Form from './components/Form/Form';
 import Summary from './components/Summary/Summary';
 
-const App = ({ features }) => {
+const App = () => {
   const [selected, setSelected] = useState({
     Processor: {
       name: '17th Generation Intel Core HB (7 Core with donut spare)',
@@ -34,11 +34,7 @@ const App = ({ features }) => {
     <div className='App'>
       <Header></Header>
       <main>
-        <Form
-          selected={selected}
-          features={features}
-          updateFeature={updateFeature}
-        ></Form>
+        <Form selected={selected} updateFeature={updateFeature}></Form>
         <Summary selected={selected}></Summary>
       </main>
     </div>
